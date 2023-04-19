@@ -37,8 +37,9 @@ public class BurgerTest {
     }
     @Test
     public void moveBurgerIngredient() {
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "соус", 0));
-        burger.addIngredient(new Ingredient(IngredientType.SAUCE, "соус2", 0));
+        Mockito.when(ingredient2.getName()).thenReturn("соус2");
+        burger.addIngredient(ingredient1);
+        burger.addIngredient(ingredient2);
         burger.moveIngredient(1, 0);
         Assert.assertEquals("соус2", burger.ingredients.get(0).getName());
     }
